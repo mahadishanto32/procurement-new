@@ -66,21 +66,21 @@ Route::middleware('auth')->group(function () {
     Route::get('/search-employee-result', [SearchController::class, 'searchEmp']);
     Route::get('/search', [SearchController::class, 'search']);
     Route::post('/search/suggestion', [SearchController::class, 'suggestion']);
-    Route::get('/user-search', [UserDashboardController::class, 'userSearch']);
+    Route::get('/user-search', [UserController::class, 'userSearch']);
 
     // Dashboards
-    Route::get('dashboard', [UserDashboardController::class, 'index'])
+    Route::get('dashboard', [UserController::class, 'index'])
         ->name('user-dashboard');
 
     // User dashboard
     Route::post('user-dashboard/events',
-        [UserDashboardController::class, 'eventSettings']);
+        [UserController::class, 'eventSettings']);
     Route::get('user-dashboard/conversations',
-        [UserDashboardController::class, 'conversations']);
+        [UserController::class, 'conversations']);
     Route::get('user-dashboard/send-message',
-        [UserDashboardController::class, 'sendMessage']);
+        [UserController::class, 'sendMessage']);
     Route::get('user-dashboard/delete-message',
-        [UserDashboardController::class, 'deleteMessage']);
+        [UserController::class, 'deleteMessage']);
 
     // Change password
     Route::get('user/change-password', [UserController::class, 'password']);
